@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -23,7 +24,9 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.GET,value = "getTasks")
     public List<TaskDto> getTasks(){
-        return new ArrayList<>();
+        TaskDto taskDto1 = new TaskDto(1L,"task1","task description1");
+        TaskDto taskDto2 = new TaskDto(1L,"task2","task description2");
+        return new ArrayList(Arrays.asList(taskDto1,taskDto2));
     }
 
     @RequestMapping(method = RequestMethod.GET,value = "getTask")
