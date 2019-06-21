@@ -1,7 +1,7 @@
 package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.TaskDto;
-import com.crud.tasks.mapper.TaskMapper;
+//import com.crud.tasks.mapper.TaskMapper;
 //import com.crud.tasks.service.DbService;
 import com.crud.tasks.service.DbService;
 import org.hibernate.service.Service;
@@ -18,10 +18,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class TaskController {
     @Autowired
     private DbService dbService;
-    @Autowired
-    private TaskMapper taskMapper;
+   // @Autowired
+   // private TaskMapper taskMapper;
 
-    /*@RequestMapping(method = RequestMethod.GET,value = "getTasks"
+    @RequestMapping(method = RequestMethod.GET,value = "getTasks")
     public List<TaskDto> getTasks(){
         return new ArrayList<>();
     }
@@ -33,7 +33,7 @@ public class TaskController {
     @RequestMapping(method = RequestMethod.DELETE,value = "deleteTask")
     public void deleteTask(Long taskId){
     }
-*/
+
     @RequestMapping(method = RequestMethod.PUT,value = "updateTask")
     public TaskDto updateTask(TaskDto taskDto){
         return new TaskDto(1L,"Edited test title","Edited test content");
