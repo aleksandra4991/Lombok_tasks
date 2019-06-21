@@ -12,7 +12,7 @@ buildscript {
 }
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
-    apply plugin: 'war'
+    //apply plugin: 'war'
 
     group = 'com.crud'
     version = '0.0.1-SNAPSHOT'
@@ -26,8 +26,9 @@ buildscript {
         compile ('org.springframework.boot:spring-boot-starter-web')
         testCompile ('org.springframework.boot:spring-boot-starter-test')
         compile ('org.springframework.boot:spring-boot-starter-data-jpa')
-        compile ('mysql:mysql-connector-java')
+        //compile ('mysql:mysql-connector-java')
+        compile ('org.postgresql:postgresql')
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
         
-        providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+        //providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     }
