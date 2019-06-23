@@ -11,13 +11,13 @@ echo.
 goto runchrome
 
 :runchrome
-start C:\ Pliki programów (x86)\Google\Chrome\Application\chrome.exe
+start chrome.exe
 echo running chrome
 echo.
 goto rungettask
 
-:rungettasks
-start http://localhost:8080/crud/v1/task/getTasks
+:rungettask
+start "" http://localhost:8080/crud/v1/task/getTasks
 echo runninggettasks
 echo.
 goto end
