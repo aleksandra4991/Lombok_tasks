@@ -24,28 +24,20 @@ public class TrelloControler {
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
     public void getTrelloBoards() {
+        // GET request
+        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-               Optional<List<TrelloBoardDto>> trelloBoards = Optional.of(trelloClient.getTrelloBoards());
+        trelloBoards.forEach(trelloBoardDto -> {
 
-                trelloBoards.get()
-                        .stream()
-                        .filter(trelloBoardDto -> trelloBoardDto.getId().isEmpty() == false)
-                        .filter(trelloBoardDto-> trelloBoardDto.getName().contains("Kodilla"))
-                        .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
+            System.out.println(trelloBoardDto.getName() + " - " + trelloBoardDto.getId());
 
+            System.out.println("This board contains lists: ");
 
+            trelloBoardDto.getLists().forEach(trelloList ->
+                    System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
 
-        }
-
-
-        //System.out.println("This board contains lists: ");
-
-                    //trelloBoardDto.getLists().forEach(trelloList ->
-                    //System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
-
-
-
-
+        });
+    }
 
     @RequestMapping(method = RequestMethod.POST,value = "createTrelloCard")
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
