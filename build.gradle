@@ -26,7 +26,6 @@ buildscript {
         compile ('org.springframework.boot:spring-boot-starter-web')
         testCompile ('org.springframework.boot:spring-boot-starter-test')
         compile ('org.springframework.boot:spring-boot-starter-data-jpa')
-        compile('org.springframework.boot:spring-boot-starter-security')
         compile ('mysql:mysql-connector-java')
         //compile ('org.postgresql:postgresql')
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'

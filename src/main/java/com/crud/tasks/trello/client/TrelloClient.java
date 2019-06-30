@@ -7,7 +7,6 @@ import com.crud.tasks.domain.TrelloCardDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -22,9 +21,6 @@ import java.util.Optional;
 @Component
 public class TrelloClient {
 
-    @Value("alexandra99784495")
-    private String trelloAppUsername;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(TrelloClient.class);
 
     @Autowired
@@ -35,8 +31,8 @@ public class TrelloClient {
 
     private URI getTrellourl(){
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/members/alexandra99784495/boards")
-                .queryParam("key", trelloConfig)
-                .queryParam("token", trelloConfig)
+                .queryParam("key", trelloConfig.getTrelloAppKey())
+                .queryParam("token", trelloConfig.getTrelloAppToken())
                 .queryParam("fields", "name,id")
                 .queryParam("lists", "all").build().encode().toUri();
 
