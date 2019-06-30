@@ -55,9 +55,9 @@ public class TrelloClient {
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto){
 
-        URI url2 = UriComponentsBuilder.fromHttpUrl(trelloConfig+"/cards")
-                .queryParam("key",trelloConfig)
-                .queryParam("token", trelloConfig)
+        URI url2 = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() +"/cards" )
+                .queryParam("key",trelloConfig.getTrelloAppKey())
+                .queryParam("token", trelloConfig.getTrelloAppToken())
                 .queryParam("name",trelloCardDto.getName())
                 .queryParam("desc",trelloCardDto.getDescription())
                 .queryParam("pos",trelloCardDto.getPos())
