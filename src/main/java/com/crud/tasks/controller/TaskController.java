@@ -26,7 +26,7 @@ public class TaskController {
     @RequestMapping(method = RequestMethod.GET,value = "getTasks")
     public List<TaskDto> getTasks(){
         TaskDto taskDto1 = new TaskDto(1L,"task1","task description1");
-        TaskDto taskDto2 = new TaskDto(1L,"task2","task description2");
+        TaskDto taskDto2 = new TaskDto(2L,"task2","task description2");
         return new ArrayList(Arrays.asList(taskDto1,taskDto2));
     }
 
