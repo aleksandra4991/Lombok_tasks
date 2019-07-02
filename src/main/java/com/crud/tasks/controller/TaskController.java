@@ -34,7 +34,7 @@ public class TaskController {
         return taskMapper.maptoTaskDto(dbService.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = "updateTask")
+    @RequestMapping(method = RequestMethod.PUT,value = "updateTask")
     public TaskDto updateTask(@RequestBody TaskDto taskDto){
         return taskMapper.maptoTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
