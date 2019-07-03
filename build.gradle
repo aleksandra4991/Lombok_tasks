@@ -29,6 +29,7 @@ buildscript {
         //compile ('mysql:mysql-connector-java')
         compile ('org.postgresql:postgresql')
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+        compile('org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE')
         
         //SWAGGER
         compile ('io.springfox:springfox-swagger2:2.7.0')
