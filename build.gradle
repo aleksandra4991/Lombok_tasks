@@ -31,6 +31,7 @@ buildscript {
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
         compile('org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE')
         compile('commons-validator:commons-validator:1.6')
+        compile('com.google.code.gson:gson:2.8.2')
         
         //SWAGGER
         compile ('io.springfox:springfox-swagger2:2.7.0')
