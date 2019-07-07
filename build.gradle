@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.19.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.20.RELEASE'
     }
 }
     apply plugin: 'java'
@@ -16,7 +16,7 @@ buildscript {
 
     group = 'com.crud'
     version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 1.8
+    sourceCompatibility = '1.8'
 
     repositories {
         mavenCentral()
@@ -30,6 +30,7 @@ buildscript {
         //compile ('org.postgresql:postgresql')
         compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
         compile('org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE')
+        compile('commons-validator:commons-validator:1.6')
         
         //SWAGGER
         compile ('io.springfox:springfox-swagger2:2.7.0')

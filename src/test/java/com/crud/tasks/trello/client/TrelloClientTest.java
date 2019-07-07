@@ -1,12 +1,10 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.tasks.com.crud.tasks.trello.config.TrelloConfig;
 import com.crud.tasks.domain.*;
 
 import java.net.URI;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import org.junit.Assert;
+import com.crud.tasks.trello.config.TrelloConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,10 +46,6 @@ public class TrelloClientTest {
     @Test
     public void shouldFetchTrelloBoards() throws URISyntaxException {
         // Given
-        when(trelloConfig.getTrelloApiEndpoint()).thenReturn("http://test.com");
-        when(trelloConfig.getTrelloAppKey()).thenReturn("test");
-        when(trelloConfig.getTrelloAppToken()).thenReturn("test");
-
         TrelloBoardDto[] trelloBoards = new TrelloBoardDto[1];
         trelloBoards[0] = new TrelloBoardDto("test_id", "test_board", new ArrayList<>());
 
@@ -84,16 +78,16 @@ public class TrelloClientTest {
         TrelloAttachmentsDto attachmentsDto = new TrelloAttachmentsDto(trelloDto);
         BadgesDto bages = new BadgesDto(1, attachmentsDto);
 
-        CreatedTrelloCard createdTrelloCard = new CreatedTrelloCard(
+        CreatedTrelloCardDto createdTrelloCardDto = new CreatedTrelloCardDto(
                 "1",
                 "Test task",
                 "http://test.com",
                 bages);
 
-        when(restTemplate.postForObject(uri,null,CreatedTrelloCard.class)).thenReturn(createdTrelloCard);
+        when(restTemplate.postForObject(uri,null,CreatedTrelloCardDto.class)).thenReturn(createdTrelloCardDto);
 
         //When
-        CreatedTrelloCard newCard = trelloClient.createNewCard(trelloCardDto);
+        CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
 
         //Then
         assertEquals("1",newCard.getId());
