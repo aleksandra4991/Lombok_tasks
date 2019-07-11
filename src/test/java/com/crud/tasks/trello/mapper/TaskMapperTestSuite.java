@@ -43,7 +43,7 @@ public class TaskMapperTestSuite {
         Task task = new Task(2L, "task", "Task to do");
 
         //When
-        TaskDto mappedTask = taskMapper.maptoTaskDto(task);
+        TaskDto mappedTask = taskMapper.mapToTaskDto(task);
 
         //Then
         assertSame(mappedTask.getClass(), TaskDto.class );

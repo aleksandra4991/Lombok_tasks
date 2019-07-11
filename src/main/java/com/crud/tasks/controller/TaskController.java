@@ -31,17 +31,17 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.GET,value = "getTask")
     public TaskDto getTask(@RequestParam Long taskId) {
-        return taskMapper.maptoTaskDto(dbService.getTaskById(taskId));
+        return taskMapper.mapToTaskDto(dbService.getTaskById(taskId));
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "updateTask")
     public TaskDto updateTask(@RequestBody TaskDto taskDto){
-        return taskMapper.maptoTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
+        return taskMapper.mapToTaskDto(dbService.saveTask(taskMapper.mapToTask(taskDto)));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
     public TaskDto deleteTask(@RequestParam Long taskId) {
-        return taskMapper.maptoTaskDto(dbService.getTaskById(taskId));
+        return taskMapper.mapToTaskDto(dbService.getTaskById(taskId));
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTask")
