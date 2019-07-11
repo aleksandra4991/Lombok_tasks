@@ -30,8 +30,8 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.GET,value = "getTask")
-    public TaskDto getTask(@RequestParam Long taskId) throws TaskNotFoundException{
-        return taskMapper.maptoTaskDto(dbService.getTask(taskId).orElseThrow(TaskNotFoundException::new));
+    public TaskDto getTask(@RequestParam Long taskId) {
+        return taskMapper.maptoTaskDto(dbService.getTaskById(taskId));
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "updateTask")
@@ -40,8 +40,8 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
-    public TaskDto deleteTask(@RequestParam Long taskId) throws  TaskNotFoundException{
-        return taskMapper.maptoTaskDto(dbService.getTask(taskId).orElseThrow(TaskNotFoundException::new));
+    public TaskDto deleteTask(@RequestParam Long taskId) {
+        return taskMapper.maptoTaskDto(dbService.getTaskById(taskId));
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTask")

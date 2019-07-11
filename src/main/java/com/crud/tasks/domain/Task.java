@@ -21,4 +21,9 @@ public class Task {
     private String title;
     @Column(name =  "description")
     private String content;
+
+    public Task(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
