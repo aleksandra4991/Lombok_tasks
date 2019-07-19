@@ -28,10 +28,14 @@ buildscript {
         compile ('org.springframework.boot:spring-boot-starter-data-jpa')
         compile ('mysql:mysql-connector-java')
         //compile ('org.postgresql:postgresql')
-        compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
         compile('org.springframework.boot:spring-boot-starter-mail:2.1.6.RELEASE')
+        
         compile('commons-validator:commons-validator:1.6')
         compile('com.google.code.gson:gson:2.8.2')
+        
+        compile('org.springframework.boot:spring-boot-starter-actuator')
+        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
         
         //SWAGGER
         compile ('io.springfox:springfox-swagger2:2.7.0')
